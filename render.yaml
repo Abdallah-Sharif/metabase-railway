@@ -13,6 +13,6 @@ services:
         value: "3000"
     plan: free
     numInstances: 1
-    # ADD THESE LINES FOR PORT CONFIGURATION:
+    # CRITICAL: Explicit port configuration
     port: 3000
     healthCheckPath: /api/health
