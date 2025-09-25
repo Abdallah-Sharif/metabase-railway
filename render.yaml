@@ -5,16 +5,9 @@ services:
     docker:
       dockerfilePath: Dockerfile
     envVars:
-      - key: MB_DB_FILE
-        value: /tmp/metabase.db
       - key: JAVA_OPTS
-        value: -Xmx1g
-      - key: MB_JETTY_HOST
-        value: 0.0.0.0
-      - key: MB_JETTY_PORT
-        value: "3000"
+        value: "-Xmx100m -Xms50m -XX:MaxRAM=200m"
     plan: free
-    numInstances: 1
     port: 3000
     healthCheckPath: /api/health
-    healthCheckTimeout: 300
+    healthCheckTimeout: 600
