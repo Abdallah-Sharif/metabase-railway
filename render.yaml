@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: metabase
+    env: docker
+    docker:
+      dockerfilePath: ./Dockerfile
+    envVars:
+      - key: MB_DB_FILE
+        value: /tmp/metabase.db
+      - key: JAVA_OPTS
+        value: -Xmx1g
+      - key: MB_JETTY_PORT
+        value: "3000"
+    plan: free
+    numInstances: 1

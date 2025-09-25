@@ -6,3 +6,6 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=300s --retries=3 \
 
 # Expose the port
 EXPOSE 3000
+
+# Use the default Metabase entrypoint
+CMD ["/app/run_metabase.sh"]
