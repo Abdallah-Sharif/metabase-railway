@@ -3,16 +3,18 @@ services:
     name: metabase
     env: docker
     docker:
-      dockerfilePath: ./Dockerfile
+      dockerfilePath: Dockerfile
     envVars:
       - key: MB_DB_FILE
         value: /tmp/metabase.db
       - key: JAVA_OPTS
         value: -Xmx1g
+      - key: MB_JETTY_HOST
+        value: 0.0.0.0
       - key: MB_JETTY_PORT
         value: "3000"
     plan: free
     numInstances: 1
-    # CRITICAL: Explicit port configuration
     port: 3000
     healthCheckPath: /api/health
+    healthCheckTimeout: 300
